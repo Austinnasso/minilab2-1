@@ -1,0 +1,66 @@
+Name: Austin Nasso
+UCLA ID: 204339807
+
+Collaborators:
+
+-------------------------------------------------------------------------------
+
+Response to Exercise 1:
+
+The name of the scheduling algorithm is: Round robin (non-preemptive version)
+
+
+(Exercise 2 is a coding exercise)
+
+
+Response to Exercise 3:
+
+Average turnaround time for scheduling_algorithm: 1278.5ms 
+	Turn around times:
+	     Process 1: 320 * 4 - 3ms = 1277ms
+	     Process 2: 320 * 4 - 2ms = 1278ms
+	     Process 3: 320 * 4 - 1ms = 1279ms
+	     Process 4: 320 * 4 - 0ms = 1280ms
+	     Average: 1278.5ms
+	 
+Average turnaround time for scheduling_algorithm 1: 800ms
+	Turn around times:
+	     Process 1: 320ms 
+	     Process 2: 640ms
+	     Process 3: 960ms
+	     Process 4: 1280ms
+	     Average: 800ms
+
+Average wait time for scheduling_algorithm 0: 958.5ms
+	Wait times:
+	     Process 1: 957ms
+	     Process 2: 958ms
+	     Process 3: 959ms
+	     Process 4: 960ms
+	     Average: 958.5ms 
+
+Average wait time for scheduling_algorithm 1:
+	Wait times:
+	     Process 1: 0ms
+	     Process 2: 320ms
+	     Process 3: 640ms
+	     Process 4: 960ms
+	     Average: 480ms
+
+
+Exercise 4:
+
+Did you complete Exercise 4A, Exercise 4B, or both for extra credit?
+
+
+Exercise 5:
+
+
+(Exercise 6 is a coding exercise)
+
+
+Anything else you'd like us to know:
+
+
+
+Extra credit exercises:
