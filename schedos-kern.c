@@ -231,14 +231,15 @@ schedule(void)
 
 	else if (scheduling_algorithm == 2)
 	  {
-	    //ITERATE THROUGH EACH PROCESS
-	    int i = 0;
-	    int maxPid = 1; 
-	    static int oldPid = -1;
-	    int pid = 1;
+          //ITERATE THROUGH EACH PROCESS
+          int i = 0;
+          int maxPid = 1;
+          static int oldPid = -1;
+          int pid = 1;
+          static int numProcsInitialized = 0;
 
-	    if (oldPid != -1)
-	       pid = (oldPid + 1) % NPROCS;
+          if (oldPid != -1)
+              pid = (oldPid + 1) % NPROCS;
 
           //SKIP IF NOT RUNNABLE
           while (proc_array[maxPid].p_state != P_RUNNABLE)
@@ -247,27 +248,30 @@ schedule(void)
           }
           
           //FIND MAX
-	    while (i<NPROCS)
-	    {
-	      if (proc_array[pid].p_state == P_RUNNABLE)
+          while (i<NPROCS)
           {
-		    if (proc_array[pid].p_priority < proc_array[maxPid].p_priority)
-		      maxPid = pid; 
-          }
+              if (proc_array[pid].p_state == P_RUNNABLE)
+              {
+                  if (proc_array[pid].p_priority < proc_array[maxPid].p_priority)
+                      maxPid = pid;
+              }
 	      
         
-	      if (proc_array[pid].p_priority == proc_array[oldPid].p_priority && oldPid != -1)
-          {
-              maxPid = pid;
-              break;
-		  }
+              if (proc_array[pid].p_priority == proc_array[oldPid].p_priority && oldPid != -1)
+              {
+                  maxPid = pid;
+                  break;
+              }
 
-		i++;
-		pid = (pid + 1) % NPROCS;
-        }
-
-	    oldPid = maxPid; 
-	    run(&proc_array[maxPid]);
+              i++;
+              pid = (pid + 1) % NPROCS;
+        
+          }
+          
+          if (numProcsInitialized >= NPROCS)
+              oldPid = maxPid;
+          numProcsInitialized++;
+          run(&proc_array[maxPid]);
 	  }
 
 	// If we get here, we are running an unknown scheduling algorithm.
