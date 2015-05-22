@@ -245,8 +245,8 @@ schedule(void)
               {
                   run(&proc_array[maxPid]);
               }
-              init = 0;*/
-          }
+              init = 0;
+          }*/
 	    /* if (oldPid != -1)
 	       pid = (oldPid + 1) % NPROCS;*/ 
 
