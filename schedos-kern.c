@@ -319,6 +319,10 @@ schedule(void)
                 pid = (pid + 1) % NPROCS;
             }
             
+            //WHEN ALL PRIORITIES ARE INIT, ADJUST THEM SO THEY ARE PROPORTIONAL USING GREATEST COMMON DIVISOR
+            if (num_init == NPROCS)
+                setProportional();
+            
             proc_array[pid].iteration++;
             
             // Run the selected process, but skip
