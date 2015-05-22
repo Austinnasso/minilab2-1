@@ -237,10 +237,12 @@ schedule(void)
           //ITERATE THROUGH EACH PROCESS
           int i = 0;
           int maxPid = 1;
-          int pid = 3;
+          int pid = 1;
           
           static int oldPid = -1;
           static int num_init = 1;
+          
+          pid = (oldPid + 1) % NPROCS; 
 
           //SKIP IF NOT RUNNABLE
           while (proc_array[maxPid].p_state != P_RUNNABLE)
@@ -263,6 +265,7 @@ schedule(void)
           }
           
           num_init++;
+          oldPid = maxPid;
           run(&proc_array[maxPid]);
 	  }
 
