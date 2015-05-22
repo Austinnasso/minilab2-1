@@ -260,11 +260,11 @@ schedule(void)
               }
 	      
         
-              /*if (proc_array[pid].p_priority == proc_array[oldPid].p_priority && oldPid != -1)
+              if (proc_array[pid].p_priority == proc_array[oldPid].p_priority && oldPid != -1)
               {
                   maxPid = pid;
                   break;
-              }*/
+              }
 
               i++;
               pid = (pid + 1) % NPROCS;
