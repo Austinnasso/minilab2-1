@@ -156,16 +156,16 @@ interrupt(registers_t *reg)
 		if (reg->reg_eax == -1)
 		  {
 		    if (current->p_pid == 1)
-		      current->p_priority = 2;
+		      current->p_priority = 4;
 
 		    if (current->p_pid == 2)
-		      current->p_priority = 11;
+		      current->p_priority = 6;
 
 		    if (current->p_pid == 3)
-		      current->p_priority = 1;
+		      current->p_priority = 5;
 
 		    if (current->p_pid == 4)
-		      current->p_priority = 10;
+		      current->p_priority = 1;
 		  }
 		run(current);
 
@@ -234,19 +234,9 @@ schedule(void)
 	    //ITERATE THROUGH EACH PROCESS
 	    int i = 0;
 	    int maxPid = 1; 
-	    static int oldPid = -1;  
-	    static int init = 1;
+	    static int oldPid = -1;
 	    int pid = 1;
-	    
-          //INITIALIZE PROCESSES FIRST
-          /*int x;
-          if (init){
-              for (x = 2; x < NPROCS; x++)
-              {
-                  run(&proc_array[maxPid]);
-              }
-              init = 0;
-          }*/
+
 	    if (oldPid != -1)
 	       pid = (oldPid + 1) % NPROCS;
 
