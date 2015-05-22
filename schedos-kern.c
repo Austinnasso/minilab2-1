@@ -274,7 +274,7 @@ schedule(void)
 
 		i++;
 		pid = (pid + 1) % NPROCS;
-	    }
+        }
 
 	    oldPid = maxPid; 
 	    run(&proc_array[maxPid]);
