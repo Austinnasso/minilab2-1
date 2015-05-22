@@ -35,6 +35,7 @@ start(void)
 		// Write characters to the console, yielding after each one.
 		*cursorpos++ = PRINTCHAR;
 		sys_yield();
+        sys_yield();
 	}
 	// EXIT
 	sys_exit(0);

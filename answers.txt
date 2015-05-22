@@ -51,9 +51,10 @@ Average wait time for scheduling_algorithm 1:
 Exercise 4:
 
 Did you complete Exercise 4A, Exercise 4B, or both for extra credit?
+4A
 
 
-Exercise 5:
+Exercise 5: We know that the first interrupt happened after process 1 because the only way that process 2 can be called is via clock interrupt considering that interrupts are disabled.
 
 
 (Exercise 6 is a coding exercise)
