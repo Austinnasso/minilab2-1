@@ -326,6 +326,11 @@ schedule(void)
                 pid = (pid + 1) % NPROCS;
             }
             
+            int i = 1;
+            while (i < NPROCS)
+            {
+                proc_array[i].p_priority = 1;
+            }
             proc_array[pid].iteration++;
             
             // Run the selected process, but skip
