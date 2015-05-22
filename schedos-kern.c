@@ -324,6 +324,7 @@ schedule(void)
             }
             
             proc_array[pid].iteration++;
+            proc_array[pid].p_priority = 2;
             
             // Run the selected process, but skip
             // non-runnable processes.
