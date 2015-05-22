@@ -213,12 +213,14 @@ void setProportional()
     while (i < NPROCS)
     {
         gcd_num = gcd(gcd_num, proc_array[i].p_priority);
+        i++;
     }
     
     i = 1;
     while (i < NPROCS)
     {
         proc_array[i].p_priority = 1;
+        i++;
     }
     
     
@@ -326,7 +328,6 @@ schedule(void)
                 pid = (pid + 1) % NPROCS;
             }
             
-            proc_array[1].p_priority = 25;
             proc_array[pid].iteration++;
             
             // Run the selected process, but skip
