@@ -36,9 +36,9 @@ start(void)
     }
 	for (i = 0; i < RUNCOUNT; i++) {
 		// Write characters to the console, yielding after each one.
-		*cursorpos++ = PRINTCHAR;
+		//*cursorpos++ = PRINTCHAR;
         //SYSTEM CALL FOR #6
-        //sys_print(print_this);
+        sys_print(print_this);
 		sys_yield();
 	}
 	// EXIT
