@@ -100,7 +100,7 @@ start(void)
 	cursorpos = (uint16_t *) 0xB8000;
 
 	// Initialize the scheduling algorithm.
-	scheduling_algorithm = 2;
+	scheduling_algorithm = 3;
 
 	// Switch to the first process.
 	run(&proc_array[1]);
@@ -154,7 +154,7 @@ interrupt(registers_t *reg)
 		// want to add a system call.
 		/* Your code here (if you want). */
 	        current->p_priority = reg->reg_eax;
-            current->iteration = 0;
+            current->iteration = -1;
 		
 		//TEST
 		if (reg->reg_eax == -1)
