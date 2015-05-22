@@ -215,7 +215,7 @@ void setProportional()
     i = 1;
     while (i < NPROCS)
     {
-        proc_array[i].p_priority /= gcd_num;
+        proc_array[i].p_priority = 1;
     }
     
     
