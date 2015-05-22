@@ -250,7 +250,7 @@ schedule(void)
 	    /* if (oldPid != -1)
 	       pid = (oldPid + 1) % NPROCS;*/ 
 
-          /SKIP IF NOT RUNNABLE
+          //SKIP IF NOT RUNNABLE
           while (proc_array[maxPid].p_state != P_RUNNABLE)
           {
               maxPid = (maxPid + 1) % NPROCS;
