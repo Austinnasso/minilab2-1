@@ -205,8 +205,6 @@ void setProportional()
 {
     int gcd_num;
     int i = 3;
-    
-    proc_array[1].p_priority = 20;
 
     gcd_num = gcd(proc_array[1].p_priority, proc_array[2].p_priority);
     
