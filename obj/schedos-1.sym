@@ -1,0 +1,6 @@
+00198000 A cursorpos
+00200000 T start
+00210000 d init.863
+00210004 A __bss_start
+00210004 A _edata
+00210004 A _end
