@@ -283,14 +283,13 @@ schedule(void)
     else if (scheduling_algorithm == 3)
     {
         while (1) {
-            if (proc_array[pid].iteration >= proc_array[pid].p_priority - 1)
+            if (proc_array[pid].iteration >= proc_array[pid].p_priority)
             {
                 proc_array[pid].iteration = 0;
                 pid = (pid + 1) % NPROCS;
             }
             
-            else
-                proc_array[pid].iteration++;
+            proc_array[pid].iteration++;
             
             // Run the selected process, but skip
             // non-runnable processes.
