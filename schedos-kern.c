@@ -100,7 +100,7 @@ start(void)
 	cursorpos = (uint16_t *) 0xB8000;
 
 	// Initialize the scheduling algorithm.
-	scheduling_algorithm = 2;
+	scheduling_algorithm = 3;
 
 	// Switch to the first process.
 	run(&proc_array[1]);
@@ -278,6 +278,23 @@ schedule(void)
           oldPid = maxPid;
           run(&proc_array[maxPid]);
 	  }
+    
+    else if (scheduling_algorithm == 3)
+    {
+        while (1) {
+            if (proc_array[pid].iteration >= proc_array[pid].p_priority)
+            {
+                proc_array[pid].iteration = 0;
+                pid = (pid + 1) % NPROCS;
+            }
+            
+            // Run the selected process, but skip
+            // non-runnable processes.
+            // Note that the 'run' function does not return.
+            if (proc_array[pid].p_state == P_RUNNABLE)
+                run(&proc_array[pid]);
+        }
+    }
 
 	// If we get here, we are running an unknown scheduling algorithm.
 	cursorpos = console_printf(cursorpos, 0x100, "\nUnknown scheduling algorithm %d\n", scheduling_algorithm);

@@ -21,24 +21,28 @@
 void
 start(void)
 {
-	int i;
-	static int init = 1;
+    int i;
+    static int init = 1;
     
     int print_this = PRINTCHAR;
     
-    //FOR SCHEDULER 2 ALGORITHM
-	if (init)
-	{
-      //SYSTEM CALL FOR #4A
-	  sys_priority(-1);
-	  init = 0;
-	  sys_yield();
+    //#4A FOR SCHEDULER 2 ALGORITHM
+    if (init)
+    {
+        //SYSTEM CALL FOR #4A
+        sys_priority(-1);
+        init = 0;
+        sys_yield();
+        //EXERCISE 4B, SET ALL ITERATIONS TO 0
+        proc->iteration = 0;
     }
+    
 	for (i = 0; i < RUNCOUNT; i++) {
 		// Write characters to the console, yielding after each one.
 		//*cursorpos++ = PRINTCHAR;
-        //SYSTEM CALL FOR #6
+        //#6 SYSTEM CALL
         sys_print(print_this);
+        proc->iteration++;
 		sys_yield();
 	}
 	// EXIT
