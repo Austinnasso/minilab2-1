@@ -268,7 +268,7 @@ schedule(void)
         
           }
           
-          if (numProcsInitialized >= NPROCS)
+          if (numProcsInitialized > NPROCS)
               oldPid = maxPid;
           numProcsInitialized++;
           run(&proc_array[maxPid]);
