@@ -23,13 +23,14 @@ start(void)
 {
 	int i;
 	static int init = 1;
-    /*
+    
+    //FOR SCHEDULER 2 ALGORITHM
 	if (init)
 	{
 	  sys_priority(-1);
 	  init = 0;
 	  sys_yield();
-    }*/
+    }
 	for (i = 0; i < RUNCOUNT; i++) {
 		// Write characters to the console, yielding after each one.
 		*cursorpos++ = PRINTCHAR;
