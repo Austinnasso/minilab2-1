@@ -7,7 +7,7 @@ Collaborators:
 
 Response to Exercise 1:
 
-The name of the scheduling algorithm is: Round robin (non-preemptive version)
+The name of the scheduling algorithm is: Round robin (non-preemptive because process calls sys_yield())
 
 
 (Exercise 2 is a coding exercise)
@@ -54,7 +54,7 @@ Did you complete Exercise 4A, Exercise 4B, or both for extra credit?
 4A
 
 
-Exercise 5: We know that the first interrupt happened after process 1 because the only way that process 2 can be called is via clock interrupt considering that interrupts are disabled.
+Exercise 5: We know that the first interrupt happened after process 3 (so during process 4) because the fifth 3 printed on the first line is followed by a 1 instead of a 4. This indicates that process 4 never printed into cursorpos and was abruptly interrupted by a clock interrupt. This occurs at the 20th character.
 
 
 (Exercise 6 is a coding exercise)
