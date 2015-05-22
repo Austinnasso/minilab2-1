@@ -283,7 +283,7 @@ schedule(void)
     else if (scheduling_algorithm == 3)
     {
         while (1) {
-            if (proc_array[pid].iteration >= proc_array[pid].p_priority)
+            if (proc_array[pid].iteration >= proc_array[pid].p_priority - 1)
             {
                 proc_array[pid].iteration = 0;
                 pid = (pid + 1) % NPROCS;
