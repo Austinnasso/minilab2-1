@@ -160,7 +160,7 @@ interrupt(registers_t *reg)
 		if (reg->reg_eax == -1)
 		  {
 		    if (current->p_pid == 1)
-		      current->p_priority = 10;
+		      current->p_priority = 1;
 
 		    if (current->p_pid == 2)
 		      current->p_priority = 10;
@@ -326,11 +326,6 @@ schedule(void)
                 pid = (pid + 1) % NPROCS;
             }
             
-            int i = 1;
-            while (i < NPROCS)
-            {
-                proc_array[i].p_priority = 1;
-            }
             proc_array[pid].iteration++;
             
             // Run the selected process, but skip
