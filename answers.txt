@@ -51,7 +51,9 @@ Average wait time for scheduling_algorithm 1:
 Exercise 4:
 
 Did you complete Exercise 4A, Exercise 4B, or both for extra credit?
-4A... I implemented this by initializing priorities to -1 so that process will have the opportunity to initialize first. I hard coded the priorities of each process in INT_SYS_PRIORITY when -1 is passed to the system call sys_priority(). If any other integer is passed to sys_priority, it sets the priority of the current process to the parameter passed. In the scheduler function, I created variable called pidMax which stores the PID of the process which the lowest priority that is also runnable. I also created a static variable called oldPid which helps us when we alternate among processes with the same priority value.
+4A AND 4B... I implemented 4A by initializing priorities to -1 so that process will have the opportunity to initialize first. I hard coded the priorities of each process in INT_SYS_PRIORITY when -1 is passed to the system call sys_priority(). If any other integer is passed to sys_priority, it sets the priority of the current process to the parameter passed. In the scheduler function, I created variable called pidMax which stores the PID of the process which the lowest priority that is also runnable. I also created a static variable called oldPid which helps us when we alternate among processes with the same priority value.
+
+For 4B... I created a GCD function that would divide each priority by the greatest common divisor among the process' priority values. Each process is scheduled PRIORITY/GCD_NUM times to maintain proportionality. 
 
 
 Exercise 5: We know that the first interrupt happened after process 3 (so during process 4) because the fifth 3 printed on the first line is followed by a 1 instead of a 4. This indicates that process 4 never printed into cursorpos and was abruptly interrupted by a clock interrupt. This occurs at the 20th character.
