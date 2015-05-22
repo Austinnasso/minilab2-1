@@ -154,7 +154,7 @@ interrupt(registers_t *reg)
 		// want to add a system call.
 		/* Your code here (if you want). */
 	        current->p_priority = reg->reg_eax;
-            current->iteration = -1;
+            current->iteration = 0;
 		
 		//TEST
 		if (reg->reg_eax == -1)
