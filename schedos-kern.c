@@ -247,8 +247,8 @@ schedule(void)
               }
               init = 0;
           }*/
-	    /* if (oldPid != -1)
-	       pid = (oldPid + 1) % NPROCS;*/ 
+	    if (oldPid != -1)
+	       pid = (oldPid + 1) % NPROCS;
 
           //SKIP IF NOT RUNNABLE
           while (proc_array[maxPid].p_state != P_RUNNABLE)
