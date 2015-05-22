@@ -24,6 +24,8 @@ start(void)
 	int i;
 	static int init = 1;
     
+    int print_this = PRINTCHAR;
+    
     //FOR SCHEDULER 2 ALGORITHM
 	if (init)
 	{
@@ -34,7 +36,7 @@ start(void)
 	for (i = 0; i < RUNCOUNT; i++) {
 		// Write characters to the console, yielding after each one.
 		//*cursorpos++ = PRINTCHAR;
-        sys_print(PRINTCHAR);
+        sys_print(print_this);
 		sys_yield();
 	}
 	// EXIT
