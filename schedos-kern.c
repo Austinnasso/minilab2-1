@@ -205,6 +205,9 @@ void setProportional()
 {
     int gcd_num;
     int i = 3;
+    
+    proc_array[1].p_priority = 20;
+
     gcd_num = gcd(proc_array[1].p_priority, proc_array[2].p_priority);
     
     while (i < NPROCS)
@@ -324,7 +327,6 @@ schedule(void)
             }
             
             proc_array[pid].iteration++;
-            proc_array[pid].p_priority = 2;
             
             // Run the selected process, but skip
             // non-runnable processes.
