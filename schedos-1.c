@@ -32,7 +32,7 @@ start(void)
         //SYSTEM CALL FOR #4A
         sys_priority(-1);
         init = 0;
-        sys_yield();
+        //sys_yield();
     }
     
 	for (i = 0; i < RUNCOUNT; i++) {

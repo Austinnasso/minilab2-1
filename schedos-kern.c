@@ -191,6 +191,36 @@ interrupt(registers_t *reg)
 	}
 }
 
+//HELPER FOR 4B
+int gcd (int a, int b)
+{
+    int c;
+    while ( a != 0 ) {
+        c = a; a = b%a;  b = c;
+    }
+    return b;
+}
+
+void setProportional()
+{
+    int gcd_num;
+    int i = 3;
+    gcd_num = gcd(proc_array[1].p_priority, proc_array[2].p_priority);
+    
+    while (i < NPROCS)
+    {
+        gcd_num = gcd(gcd_num, proc_array[i].p_priority);
+    }
+    
+    i = 1;
+    while (i < NPROCS)
+    {
+        proc_array[i].p_priority /= gcd_num;
+    }
+    
+    
+}
+
 
 
 /*****************************************************************************
@@ -209,7 +239,8 @@ interrupt(registers_t *reg)
 void
 schedule(void)
 {
-	pid_t pid = current->p_pid; 
+	pid_t pid = current->p_pid;
+    static int num_init = 1;
 
 	if (scheduling_algorithm == 0)
 		while (1) {
@@ -224,7 +255,7 @@ schedule(void)
 
 	else if (scheduling_algorithm == 1)
 	  {
-	    pid = 1; 
+	    pid = 1;
 	    while (1) 
 	      { 
 		  if (proc_array[pid].p_state == P_RUNNABLE)
@@ -242,7 +273,6 @@ schedule(void)
           int pid = 1;
           
           static int oldPid = -1;
-          static int num_init = 1;
           
           if (oldPid != -1)
               pid = (oldPid + 1) % NPROCS;
@@ -283,7 +313,7 @@ schedule(void)
     else if (scheduling_algorithm == 3)
     {
         while (1) {
-            if (proc_array[pid].iteration >= proc_array[pid].p_priority)
+            if (proc_array[pid].iteration >= proc_array[pid].p_priority || num_init < NPROCS)
             {
                 proc_array[pid].iteration = 0;
                 pid = (pid + 1) % NPROCS;
@@ -294,6 +324,8 @@ schedule(void)
             // Run the selected process, but skip
             // non-runnable processes.
             // Note that the 'run' function does not return.
+            
+            num_init++;
             if (proc_array[pid].p_state == P_RUNNABLE)
                 run(&proc_array[pid]);
         }
