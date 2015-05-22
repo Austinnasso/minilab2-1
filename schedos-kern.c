@@ -166,10 +166,10 @@ interrupt(registers_t *reg)
 		      current->p_priority = 2;
 
 		    if (current->p_pid == 3)
-		      current->p_priority = 2;
+		      current->p_priority = 8;
 
 		    if (current->p_pid == 4)
-		      current->p_priority = 4;
+		      current->p_priority = 8;
 		  }
 		run(current);
 
