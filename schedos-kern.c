@@ -215,7 +215,7 @@ void setProportional()
     i = 1;
     while (i < NPROCS)
     {
-        proc_array[i].p_priority /= 3;
+        proc_array[i].p_priority = 3;
     }
     
     
