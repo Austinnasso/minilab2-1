@@ -29,6 +29,7 @@ start(void)
     //FOR SCHEDULER 2 ALGORITHM
 	if (init)
 	{
+      //SYSTEM CALL FOR #4A
 	  sys_priority(-1);
 	  init = 0;
 	  sys_yield();
@@ -36,6 +37,7 @@ start(void)
 	for (i = 0; i < RUNCOUNT; i++) {
 		// Write characters to the console, yielding after each one.
 		//*cursorpos++ = PRINTCHAR;
+        //SYSTEM CALL FOR #6
         sys_print(print_this);
 		sys_yield();
 	}
