@@ -162,7 +162,7 @@ interrupt(registers_t *reg)
 		      current->p_priority = 4;
 
 		    if (current->p_pid == 2)
-		      current->p_priority = 3;
+		      current->p_priority = 5;
 
 		    if (current->p_pid == 3)
 		      current->p_priority = 5;
