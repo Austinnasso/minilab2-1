@@ -84,6 +84,8 @@ start(void)
 
 		// Set ESP
 		proc->p_registers.reg_esp = stack_ptr;
+        
+        //SET TO NEGATIVE 1 SO THAT ALL PROCESSES INITIALIZED FIRST
         proc->p_priority = -1;
 
 		// Load process and set EIP, based on ELF image
@@ -269,8 +271,7 @@ schedule(void)
         
           }
           
-          /*
-          if (numProcsInitialized > 1)
+          if (numProcsInitialized > NPROCS - 2)
               oldPid = maxPid;*/
           numProcsInitialized++;
           run(&proc_array[maxPid]);
