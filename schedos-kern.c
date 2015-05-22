@@ -174,7 +174,7 @@ interrupt(registers_t *reg)
 
 	case INT_SYS_PRINT:
 		/* Your code here (if you want). */
-        cursorpos++ = reg->reg_eax; 
+        *cursorpos++ = reg->reg_eax;
 		run(current);
 
 	case INT_CLOCK:
