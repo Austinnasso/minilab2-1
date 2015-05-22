@@ -239,13 +239,13 @@ schedule(void)
 	    int pid = 1;
 	    
           //INITIALIZE PROCESSES FIRST
-          int x;
+          /*int x;
           if (init){
               for (x = 2; x < NPROCS; x++)
               {
                   run(&proc_array[maxPid]);
               }
-              init = 0;
+              init = 0;*/
           }
 	    /* if (oldPid != -1)
 	       pid = (oldPid + 1) % NPROCS;*/ 
