@@ -154,6 +154,7 @@ interrupt(registers_t *reg)
 		// want to add a system call.
 		/* Your code here (if you want). */
 	        current->p_priority = reg->reg_eax;
+            current->iteration = 0;
 		
 		//TEST
 		if (reg->reg_eax == -1)
@@ -287,6 +288,9 @@ schedule(void)
                 proc_array[pid].iteration = 0;
                 pid = (pid + 1) % NPROCS;
             }
+            
+            else
+                proc_array[pid].iteration++;
             
             // Run the selected process, but skip
             // non-runnable processes.

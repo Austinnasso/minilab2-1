@@ -33,8 +33,6 @@ start(void)
         sys_priority(-1);
         init = 0;
         sys_yield();
-        //EXERCISE 4B, SET ALL ITERATIONS TO 0
-        current->iteration = 0;
     }
     
 	for (i = 0; i < RUNCOUNT; i++) {
@@ -42,7 +40,6 @@ start(void)
 		//*cursorpos++ = PRINTCHAR;
         //#6 SYSTEM CALL
         sys_print(print_this);
-        current->iteration++;
 		sys_yield();
 	}
 	// EXIT
