@@ -260,7 +260,7 @@ schedule(void)
                       maxPid = pid;
               }
               
-              if (oldPid != -1 && proc_array[oldPid] == proc_array[pid])
+              if (oldPid != -1 && proc_array[oldPid].p_priority == proc_array[pid].p_priority)
               {
                   maxPid = pid;
                   break;
