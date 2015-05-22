@@ -72,7 +72,7 @@ static inline void sys_priority(int priority)
 static inline void sys_print(int print_this)
 {
     asm volatile("int %0\n"
-                 : : "i" (INT_SYS_PRIORITY),
+                 : : "i" (INT_SYS_PRINT),
                  "a" (print_this)
                  : "cc", "memory");
 }
