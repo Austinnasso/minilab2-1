@@ -160,16 +160,16 @@ interrupt(registers_t *reg)
 		if (reg->reg_eax == -1)
 		  {
 		    if (current->p_pid == 1)
-		      current->p_priority = 5;
+		      current->p_priority = 7;
 
 		    if (current->p_pid == 2)
-		      current->p_priority = 10;
+		      current->p_priority = 14;
 
 		    if (current->p_pid == 3)
-		      current->p_priority = 15;
+		      current->p_priority = 14;
 
 		    if (current->p_pid == 4)
-		      current->p_priority = 25;
+		      current->p_priority = 7;
 		  }
 		run(current);
 
