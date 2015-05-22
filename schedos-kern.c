@@ -157,10 +157,10 @@ interrupt(registers_t *reg)
 		if (reg->reg_eax == -1)
 		  {
 		    if (current->p_pid == 1)
-		      current->p_priority = 1;
+		      current->p_priority = 2;
 
 		    if (current->p_pid == 2)
-		      current->p_priority = 3;
+		      current->p_priority = 2;
 
 		    if (current->p_pid == 3)
 		      current->p_priority = 2;
