@@ -259,14 +259,15 @@ schedule(void)
               {
                   if (proc_array[pid].p_priority < proc_array[maxPid].p_priority)
                       maxPid = pid;
-              }
               
-              if (oldPid != -1 && proc_array[oldPid].p_priority == proc_array[pid].p_priority && oldPid != pid && num_init > 4)
-              {
-                  maxPid = pid;
-                  oldPid = maxPid;
-                  break;
-              }
+                  if (oldPid != -1 && proc_array[oldPid].p_priority == proc_array[pid].p_priority && oldPid != pid && num_init > 4)
+                  {
+                      maxPid = pid;
+                      oldPid = maxPid;
+                      break;
+                  }
+                  
+            }
 
               i++;
               pid = (pid + 1) % NPROCS;
