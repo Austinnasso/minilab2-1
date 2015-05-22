@@ -84,7 +84,7 @@ start(void)
 
 		// Set ESP
 		proc->p_registers.reg_esp = stack_ptr;
-        proc->p_priority = i;///NPROCS - i;
+        proc->p_priority = NPROCS - i;
 
 		// Load process and set EIP, based on ELF image
 		program_loader(i - 1, &proc->p_registers.reg_eip);
