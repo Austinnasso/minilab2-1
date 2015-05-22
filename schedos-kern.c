@@ -317,9 +317,6 @@ schedule(void)
     
     else if (scheduling_algorithm == 3)
     {
-        //WHEN ALL PRIORITIES ARE INIT, ADJUST THEM SO THEY ARE PROPORTIONAL USING GREATEST COMMON DIVISOR
-        if (num_init == NPROCS)
-            setProportional();
         
         while (1) {
             if (proc_array[pid].iteration >= proc_array[pid].p_priority || num_init < NPROCS)
@@ -327,6 +324,10 @@ schedule(void)
                 proc_array[pid].iteration = 0;
                 pid = (pid + 1) % NPROCS;
             }
+            
+            //WHEN ALL PRIORITIES ARE INIT, ADJUST THEM SO THEY ARE PROPORTIONAL USING GREATEST COMMON DIVISOR
+            if (num_init == NPROCS)
+                setProportional();
             
             proc_array[pid].iteration++;
             
