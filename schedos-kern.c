@@ -215,7 +215,7 @@ void setProportional()
     i = 1;
     while (i < NPROCS)
     {
-        proc_array[i].p_priority /= gcd_num;
+        proc_array[i].p_priority /= 3;
     }
     
     
@@ -320,8 +320,8 @@ schedule(void)
             }
             
             //WHEN ALL PRIORITIES ARE INIT, ADJUST THEM SO THEY ARE PROPORTIONAL USING GREATEST COMMON DIVISOR
-            //if (num_init == NPROCS)
-                //setProportional();
+            if (num_init == NPROCS)
+                setProportional();
             
             proc_array[pid].iteration++;
             
