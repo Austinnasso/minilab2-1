@@ -232,7 +232,6 @@ schedule(void)
 	else if (scheduling_algorithm == 2)
 	  {
 	    //ITERATE THROUGH EACH PROCESS
-      start:
 	    int i = 0;
 	    int maxPid = 1; 
 	    static int oldPid = -1;  
@@ -245,7 +244,6 @@ schedule(void)
               for (x = 2; x < NPROCS; x++)
               {
                   run(&proc_array[maxPid]);
-                  goto start; 
               }
               init = 0;
           }
