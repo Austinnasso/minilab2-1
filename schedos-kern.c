@@ -320,7 +320,7 @@ schedule(void)
             }
             
             //WHEN ALL PRIORITIES ARE INIT, ADJUST THEM SO THEY ARE PROPORTIONAL USING GREATEST COMMON DIVISOR
-            if (num_init == NPROCS)
+            //if (num_init == NPROCS)
                 //setProportional();
             
             proc_array[pid].iteration++;
